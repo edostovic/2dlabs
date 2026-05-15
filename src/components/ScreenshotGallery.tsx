@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 const screenshots = [
@@ -50,15 +49,13 @@ export function ScreenshotGallery() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative aspect-video rounded-xl overflow-hidden group cursor-pointer bg-neutral-950"
             >
-              <Image
+              <img
                 src={shot.src}
                 alt={shot.label}
-                fill
-                className="object-contain pixelated transition-transform duration-500 group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-contain pixelated transition-transform duration-500 group-hover:scale-110"
                 style={{ imageRendering: "pixelated" }}
-                unoptimized
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <span className="text-sm font-semibold text-white">
                   {shot.label}
