@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const socialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/2dlabs",
+    href: "https://github.com/edostovic/2dlabs",
     icon: GitFork,
     description: "Source code and project updates",
   },

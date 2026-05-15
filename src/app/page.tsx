@@ -1,15 +1,11 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { AnimatedHero } from "@/components/AnimatedHero";
 import { StatsBar } from "@/components/StatsBar";
+import { NotifyMe } from "@/components/NotifyMe";
 
 export default function HomePage() {
   return (
@@ -144,6 +140,14 @@ export default function HomePage() {
 
       {/* Stats Bar */}
       <StatsBar />
+
+      {/* Notify Me */}
+      <section className="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-background via-muted/20 to-background">
+        <div className="absolute inset-0 pixel-dots opacity-10" />
+        <div className="mx-auto max-w-3xl relative z-10">
+          <NotifyMe />
+        </div>
+      </section>
 
       {/* Call to Action */}
       <section className="py-24 px-6 relative overflow-hidden">

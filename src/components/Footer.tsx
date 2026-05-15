@@ -3,7 +3,7 @@ import { GitFork, Gamepad2, Camera } from "lucide-react";
 
 const socialLinks = [
   {
-    href: "https://github.com/2dlabs",
+    href: "https://github.com/edostovic/2dlabs",
     label: "GitHub",
     icon: GitFork,
   },
