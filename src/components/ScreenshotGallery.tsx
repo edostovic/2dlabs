@@ -1,31 +1,32 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const screenshots = [
   {
     id: 1,
-    label: "Dungeon Entrance",
-    gradient: "from-primary/20 via-primary/5 to-primary/10",
-    icon: "🏰",
+    label: "Dungeon Exploration",
+    src: "/ss_gameplay.png",
+    desc: "Procedurally generated dungeon floors with turn-based movement",
   },
   {
     id: 2,
-    label: "Combat",
-    gradient: "from-accent/20 via-accent/5 to-accent/10",
-    icon: "⚔️",
+    label: "Title Screen",
+    src: "/ss_title.png",
+    desc: "Dark fantasy atmosphere with pixel art styling",
   },
   {
     id: 3,
-    label: "Item Discovery",
-    gradient: "from-secondary/20 via-secondary/5 to-secondary/10",
-    icon: "💎",
+    label: "Combat",
+    src: "/ss_combat.png",
+    desc: "D20 turn-based combat against 19 enemy types",
   },
   {
     id: 4,
-    label: "Boss Battle",
-    gradient: "from-accent/20 via-primary/5 to-accent/10",
-    icon: "🐉",
+    label: "Inventory",
+    src: "/ss_inventory.png",
+    desc: "Manage 43 item types with equipment and consumables",
   },
 ];
 
@@ -47,22 +48,24 @@ export function ScreenshotGallery() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative aspect-video rounded-xl overflow-hidden group cursor-pointer"
+              className="relative aspect-video rounded-xl overflow-hidden group cursor-pointer bg-neutral-950"
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${shot.gradient}`}
+              <Image
+                src={shot.src}
+                alt={shot.label}
+                fill
+                className="object-contain pixelated transition-transform duration-500 group-hover:scale-110"
+                style={{ imageRendering: "pixelated" }}
+                unoptimized
               />
-              <div className="absolute inset-0 pixel-dots opacity-30" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-              <div className="relative z-10 h-full flex flex-col items-center justify-center">
-                <span className="text-5xl mb-3">{shot.icon}</span>
-                <span className="text-sm text-muted-foreground">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <span className="text-sm font-semibold text-white">
                   {shot.label}
                 </span>
+                <p className="text-xs text-neutral-400 mt-1">{shot.desc}</p>
               </div>
               <div className="absolute inset-0 border border-border/30 rounded-xl group-hover:border-primary/40 transition-colors pointer-events-none" />
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
             </motion.div>
           ))}
         </div>
